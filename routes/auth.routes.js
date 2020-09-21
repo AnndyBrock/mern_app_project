@@ -31,7 +31,13 @@ router.post(
         const hashPassword = await bcrypt.hash(password, 12);
         const user = new User({email:email, password:hashPassword});
         await user.save();
-        res.status(201).json({message:"User created"})
+        const user_login = await User.findOne({email});
+        const token = jwt.sign(
+            {userId:user_login.id},
+            config.get('jwtSecret'),
+            { expiresIn: '1h' }
+        );
+        res.status(201).json({token, userId:user_login.id, message:"User created"})
     }catch (e) {
         res.status(500).json({message: "Something going wrong"})
     }
