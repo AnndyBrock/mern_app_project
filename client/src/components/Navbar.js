@@ -14,7 +14,7 @@ export const Navbar = () => {
 
     return(
         <nav>
-            <div className="nav-wrapper">
+            <div className="nav-wrapper blue darken-1" style={{padding:'0 2rem'}}>
                 <a href="/" className="brand-logo">Some uniq text</a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><NavLink to='/create'>Create</NavLink></li>
