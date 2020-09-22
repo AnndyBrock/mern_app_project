@@ -4,6 +4,7 @@ const storage = 'userData';
 
 export const useAuth =  () =>{
     const [token, setToken] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [userId, setUserId] = useState(null);
 
     const logIn = useCallback((jwtToken, id)=>{
@@ -27,7 +28,8 @@ export const useAuth =  () =>{
         if (data && data.token) {
             logIn(data.token, data.userId)
         }
+        setLoading(true)
     },[logIn]);
 
-    return {logIn, logOut, token, userId}
+    return {logIn, logOut, token, userId, loading}
 };

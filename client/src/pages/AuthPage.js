@@ -31,7 +31,7 @@ export const AuthPage = () => {
             msg(data.message);
             auth.logIn(data.token, data.userId)
         }catch (e) {
-            
+            console.log(e)
         }
     };
 
@@ -40,7 +40,7 @@ export const AuthPage = () => {
             const data = await request('/api/auth/login', 'POST', {...form});
             auth.logIn(data.token, data.userId)
         }catch (e) {
-
+            console.log(e)
         }
     };
 
@@ -53,12 +53,26 @@ export const AuthPage = () => {
                         <span className="card-title">Authorization</span>
                         <div>
                             <div className="input-field">
-                                <input className="yellow-input" placeholder="Please, enter your email" id="email" type="text" name="email" onChange={changeHandler} required/>
+                                <input
+                                    className="yellow-input"
+                                    placeholder="Please, enter your email"
+                                    id="email"
+                                    type="text"
+                                    name="email"
+                                    value={form.email}
+                                    onChange={changeHandler} required/>
                                 <label htmlFor="email">Email</label>
                             </div>
 
                             <div className="input-field">
-                                <input className="yellow-input" placeholder="Please, enter your password" id="password" type="password" name="password"onChange={changeHandler} required/>
+                                <input
+                                    className="yellow-input"
+                                    placeholder="Please, enter your password"
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    value={form.password}
+                                    onChange={changeHandler} required/>
                                 <label htmlFor="password">Password</label>
                             </div>
                         </div>

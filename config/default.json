@@ -1,5 +1,6 @@
 {
   "port":5000,
   "mongo_url": "mongodb+srv://andrew:8xkc53e3@cluster0.5g3ad.azure.mongodb.net/mern_app?retryWrites=true&w=majority",
-  "jwtSecret": "andrewBrockReact"
+  "jwtSecret": "andrewBrockReact",
+  "baseUrl": "http://localhost:5000"
 }
